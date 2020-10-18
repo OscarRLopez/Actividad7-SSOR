@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Sistemas operativos de red - Oscar Ricardo López López</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+    <div class="site-blocks-cover overlay" style="background-image: url(images/network-2.jpg);" data-aos="fade" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+          
+          <div class="col-md-8 mt-lg-5 text-center">
+            <h1 class="text-uppercase" data-aos="fade-up">Actividad 5 - Arranque y parada del sistema y Excepciones síncronas</h1>
+            <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Oscar Ricardo López López - 217759132</p>
+            <div data-aos="fade-up" data-aos-delay="100">
+              <a href="#about-section" class="btn smoothscroll btn-primary mr-2 mb-2">Iniciar</a>
+            </div>
+          </div>
+            
+        </div>
+      </div>
+
+      <a href="#about-section" class="mouse smoothscroll">
+        <span class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </span>
+      </a>
+    </div>  
+
+    
+    <div class="site-section cta-big-image" id="about-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12" data-aos="fade">
+            <h2 class="section-title mb-3 text-center">Arranque y parada del sistema</h2>
+            <p>El arranque de un computador actual tiene dos fases: la fase de arranque hardware y la fase de arranque del sistema operativo.</p>
+            <h3>Iniciador ROM</h3>
+            <p>Como se ha indicado con anterioridad, el computador solamente es capaz de realizar actividades útiles si cuenta con
+              el correspondiente programa cargado en memoria principal. Ahora bien, la memoria principal de los computadores
+              es de tipo RAM, que es volátil, lo que significa que, cuando se enciende la máquina, no contiene ninguna información válida. Por tanto, al arrancar el computador no es capaz de realizar nada.</p>
+            <p>Para resolver esta situación, los computadores antiguos tenían una serie de conmutadores que permitían introducir, una a una, palabras en la memoria principal y en los registros. El usuario debía introducir a mano, y en binario, un primer programa que permitiese cargar otros programas almacenados en algún soporte, como la cinta de papel. En la actualidad, la solución empleada es mucho más cómoda, puesto que se basa en un programa permanente
+              grabado en una memoria ROM no volátil que ocupa, como muestra la imagen siguiente, una parte del mapa de memoria.
+              Esta memoria suele estar situada en la parte baja o alta del mapa de memoria, aunque en la arquitectura PC se encuentra al final del primer megabyte del mapa de memoria. En esta memoria ROM hay un programa de arranque, que está siempre disponible, puesto que la ROM no pierde su contenido. Llamaremos iniciador ROM a este programa.</p>
+              <div class="text-center">
+                <img src="./images/actividad5-1.png" alt="Unidad de memoria">
+              </div>
+            <h3>Cargador del sistema operativo o boot</h3>
+            <p>El sistema operativo se encuentra almacenado en una unidad de almacenamiento como el disco, tal y como muestra
+              la figura 2.6. Hay una parte del mismo en la que estamos especialmente interesados ahora: se trata del programa cargador del sistema operativo o boot del sistema operativo. Este programa está almacenado en una
+              zona predefinida del mencionado dispositivo (p. ej.: los cuatro primeros sectores del disco) y tiene un tamaño prefijado. Además, incluye una contraseña (o palabra mágica) que lo identifica como boot.
+            </p>
+            <p> La operación combinada de leer un programa ubicado en un periférico y de almacenarlo en memoria principal se denomina carga. El programa que realiza esta operación se llama cargador</p>
+            <div class="text-center">
+              <img src="./images/actividad5-2.png" alt="Programa cargador">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <section class="site-section bg-light" id="installation-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12" data-aos="fade">
+            <h2 class="section-title mb-3 text-center">Arranque de hardware</h2>
+            <p>Cuando se arranca el computador, o cuando se pulsa el botón de RESET, se genera una señal eléctrica que carga
+              unos valores predefinidos en los registros. En especial, esta señal carga en el contador de programa la dirección de
+              comienzo del iniciador ROM. De esta forma, se cumplen todas las condiciones para que el computador ejecute un
+              programa y realice funciones útiles. Adicionalmente, el RESET pone el procesador en modo privilegiado, por lo que
+              puede utilizar el juego completo de instrucciones máquina, en modo real, es decir, sin memoria virtual (la MMU
+              queda desactivada), y con las interrupciones inhibidas.</p>
+            <p>El iniciador ROM realiza las tres funciones siguientes: </p>
+            <ul>
+              <li>Primero hace una comprobación del sistema, que sirve para detectar sus características (p. ej.: la cantidad
+                de memoria principal disponible o los periféricos instalados) y comprobar si el conjunto funciona correctamente</li>
+              <li>Una vez pasada esta comprobación, entra en la fase de lectura y almacenamiento en memoria del progra -
+                ma cargador del sistema operativo o boot. El programa iniciador ROM y el sistema operativo tienen un
+                convenio sobre la ubicación, dirección de arranque, contraseña y tamaño del cargador del sistema operativo. De esta forma, el iniciador ROM puede leer y verificar que la información contenida en la zona prefijada contiene efectivamente el programa cargador de un sistema operativo. Observe que el iniciador ROM
+                es independiente del sistema operativo, siempre que éste cumpla con el convenio anterior, por lo que la
+                máquina podrá soportar diversos sistemas operativos.</li>
+              <li>Finalmente, da control al programa boot, bifurcando a la dirección de memoria en la que lo ha almacenado. Observe que se sigue ejecutando en modo privilegiado y modo real.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="partition-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12" data-aos="fade">
+            <h2 class="section-title mb-3 text-center">Arranque del sistema operativo</h2>
+            <p>El programa boot tiene por misión traer a memoria principal y ejecutar el programa de arranque del sistema operativo, que incluye las siguientes operaciones:</p>
+            <ul>
+              <li>Comprobación del sistema. Se completan las pruebas del hardware realizadas por el iniciador ROM y se
+                comprueba que el sistema de ficheros tiene un estado coherente. Esta operación exige revisar todos los directorios, lo que supone un largo tiempo de procesamiento. Por esta razón, los sistemas operativos para
+                máquinas personales solamente realizan esta revisión si se apagó mal el sistema.</li>
+              <li>Se carga en memoria principal aquella parte del sistema operativo que ha de estar siempre en memoria,
+                parte que se denomina sistema operativo residente.</li>
+              <li>Se establecen las estructuras de información propias del sistema operativo, tales como la tabla de interrupciones IDT, la tabla de procesos, las tablas de memoria y las de E/S. El contenido de estas tablas se describirá a lo largo del libro.</li>
+              <li>En su caso, creadas las tablas de páginas necesarias, se activa la MMU, pasando a modo virtual.</li>
+              <li>Se habilitan las interrupciones.</li>
+              <li>Se crea un proceso de inicio o login por cada terminal definido en el sistema, así como una serie de procesos auxiliares y de demonios como el de impresión o el de comunicaciones. Dichos procesos ya ejecutan en modo usuario.</li>
+            </ul>
+            <p>En el caso de los sistemas operativos tipo UNIX el arranque del mismo solamente crea un proceso denominado INIT, estando este proceso encargado de crear los procesos de inicio y los procesos auxiliares.
+              Los procesos de inicio muestran en su terminal el mensaje de bienvenida y se quedan a la espera de que un
+              usuario arranque una sesión, para lo cual ha de teclear el nombre de su cuenta y su contraseña o password. El proceso de inicio autentica al usuario, comprobando que los datos introducidos son correctos y lanza un proceso shell.</p>
+            <p>Suele existir algún mecanismo para que el usuario pueda establecer sus preferencias, por ejemplo, el shell puede primero ejecutar uno o varios ficheros de mandatos, como es el autoexec.bat en MS-DOS o los .profile y
+              .bashrc en UNIX. A continuación, el shell se queda esperando órdenes de los usuarios, ya sean textuales o acciones sobre un menú o un icono. Es frecuente que el shell genere uno o varios procesos para llevar a cabo cada
+              operación solicitada por el usuario</p>
+            <p>En algunos de los sistemas operativos monousuario utilizados en los computadores personales no hay fase de
+              login, creándose directamente el proceso shell para atender al usuario.</p>
+            <div class="text-center">
+              <img src="./images/actividad5-3.png" alt="Operaciones realizadas en el arranque del computador y situación del procesador">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section bg-light" id="commentary-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12" data-aos="fade">
+            <h2 class="section-title mb-3 text-center">Parada del computador</h2>
+            <p>Para garantizar una alta velocidad, el sistema operativo mantiene en memoria principal una gran cantidad de información crítica, entre la que cabe destacar parte de los ficheros que se están utilizando. Para que toda esa informa -
+              ción no se pierda o corrompa al apagar el computador, el sistema operativo debe proceder a un apagado ordenado,
+              que consiste en copiar a disco toda la información crítica que mantiene en memoria y en terminar todos los procesos
+              activos. Este apagado ordenado lleva un cierto tiempo, pero es imprescindible para que no se produzcan pérdidas de
+              información</p>
+            <p>Cuando se produce un apagón brusco, por ejemplo, porque se interrumpe la alimentación o porque se pulsa el
+              RESET del computador, se corre el riesgo de perder información importante y de que el sistema de ficheros quede
+              inconsistente. Por esta razón, después de un apagado brusco se debe comprobar siempre la consistencia del sistema
+              de ficheros y se deben reparar los posibles problemas detectados.</p>
+            <p>En los sistemas multiusuario el apagado del computador debe anunciarse con suficiente antelación para que
+              los usuarios cierren sus aplicaciones y salven en disco su información.</p>
+            <p>En los computadores personales se puede <strong>hibernar</strong> el sistema. Esta operación se diferencia del apagado en
+              que los procesos no se cierran, simplemente se hace una copia a disco de toda la memoria principal. Cuando se vuelve a arrancar, se recupera esta copia, quedando el computador en el estado que tenía antes de hibernar, con todos los
+              procesos activos. La hibernación y rearranque posterior suelen ser bastante más rápidas que el apagado y arranque
+              normal.</p>
+            <p>Los computadores portátiles suelen incorporar una función de <strong>apagado en espera</strong> (standby). En este modo se
+              para todo el computador, pero se mantiene alimentada la memoria principal, de forma que conserve toda su información. Se trata de un apagado parecido a la hibernación pero que es mucho más rápido, puesto que no se copia la información al disco, pero se necesita una batería para mantener la memoria alimentada. Del apagado en espera se sale
+              mediante una interrupción, como puede ser de un temporizador o batería baja. Este apagado no se puede utilizar, por
+              ejemplo, en los aviones, puesto que el computador puede despertar, aunque esté cerrado, violando las normas de
+              aviación civil.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="exceptions-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12" data-aos="fade">
+            <h2 class="section-title mb-3 text-center">Excepciones hardware síncronas</h2>
+            <p> Hay determinadas causas que hacen que un programa presente una incidencia en su ejecución, por lo que se generará una interrupción, para que el sistema operativo entre a
+              ejecutar y decida lo que debe hacerse. Dichas causas se pueden estructurar en las tres clases siguientes:</p>
+            <ul>
+              <li>Problemas de ejecución:
+                <ul>
+                  <li>Operación inválida en la unidad aritmética.</li>
+                  <li>División por cero.</li>
+                  <li>Operando no normalizado.</li>
+                  <li>Desbordamiento en el resultado, siendo demasiado grande o demasiado pequeño.</li>
+                  <li>Resultado inexacto en la unidad aritmética.</li>
+                  <li>Dispositivo no existente (p. ej.: no existe coprocesador).</li>
+                  <li>Región de memoria inválida.</li>
+                  <li>Región de memoria privilegiada en modo de ejecución usuario.</li>
+                  <li>Desbordamiento de la pila.</li>
+                  <li>Violación de los límites de memoria asignada.</li>
+                  <li>Error de alineación en acceso a memoria.</li>
+                  <li>Código de operación máquina inválido.</li>
+                  <li>Código de operación máquina privilegiado en modo de ejecución usuario.</li>
+                </ul>
+              </li>
+              <li>Depuración:
+                <ul>
+                  <li>Punto de ruptura.</li>
+                </ul>
+              </li>
+              <li>Fallo de página</li>
+            </ul>
+            <p>Todas ellas son producidas directa o indirectamente por el programa en ejecución, por lo que decimos que
+              se trata de interrupciones síncronas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section bg-light" id="conclusion-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">Conclusión personal</h2>
+            <p>Esta actividad de investigación estuvo interesante, no conocía correctamente las excepciones síncronas de un sistema operativo, incluso la parte de inicio y parada del sistema las conocía solo por encima. Esto demuestra que un Sistema Operativo es muy complejo, desde su inicio y todo lo que colleva el manejo de excepciones durante la ejecución del mismo. Funciones como la hibernación o el stand by son cosas que la gran mayoría hemos utilizado y no nos ponemos a pensar en cómo fueron implementadas a bajo nivel, es muy interesante el conocer cómo funcionan las cosas que nos son tan útiles en el día a día.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="sources-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">Bibliografía</h2>
+            <a href="https://www.cartagena99.com/recursos/alumnos/apuntes/sistemasoperativosupm.pdf">Sistemas Operativos - Pedro de Miguel Anasagasti & Fernando Pérez Costoya</a> <br>
+            <a href="https://www.ibm.com/support/knowledgecenter/es/ssw_aix_72/osmanagement/bootproc.html">Arranque de sistema operativo - IBM Knowledge center</a> <br>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p>
+                I7034 Seminario de Solución de Problemas de Sistemas Operativos de Red - D02 | Oscar Ricardo López López 217759132
+            </p>
+        
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- .site-wrap -->
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/isotope.pkgd.min.js"></script>
+
+  
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
