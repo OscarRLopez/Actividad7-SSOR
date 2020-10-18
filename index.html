@@ -8,7 +8,6 @@
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
@@ -56,7 +55,7 @@
 
           
           <div class="col-md-8 mt-lg-5 text-center">
-            <h1 class="text-uppercase" data-aos="fade-up">Actividad 5 - Arranque y parada del sistema y Excepciones síncronas</h1>
+            <h1 class="text-uppercase" data-aos="fade-up">Actividad 7 - Utilización de herramientas para la administración de dominio</h1>
             <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Oscar Ricardo López López - 217759132</p>
             <div data-aos="fade-up" data-aos-delay="100">
               <a href="#about-section" class="btn smoothscroll btn-primary mr-2 mb-2">Iniciar</a>
@@ -78,26 +77,19 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12" data-aos="fade">
-            <h2 class="section-title mb-3 text-center">Arranque y parada del sistema</h2>
-            <p>El arranque de un computador actual tiene dos fases: la fase de arranque hardware y la fase de arranque del sistema operativo.</p>
-            <h3>Iniciador ROM</h3>
-            <p>Como se ha indicado con anterioridad, el computador solamente es capaz de realizar actividades útiles si cuenta con
-              el correspondiente programa cargado en memoria principal. Ahora bien, la memoria principal de los computadores
-              es de tipo RAM, que es volátil, lo que significa que, cuando se enciende la máquina, no contiene ninguna información válida. Por tanto, al arrancar el computador no es capaz de realizar nada.</p>
-            <p>Para resolver esta situación, los computadores antiguos tenían una serie de conmutadores que permitían introducir, una a una, palabras en la memoria principal y en los registros. El usuario debía introducir a mano, y en binario, un primer programa que permitiese cargar otros programas almacenados en algún soporte, como la cinta de papel. En la actualidad, la solución empleada es mucho más cómoda, puesto que se basa en un programa permanente
-              grabado en una memoria ROM no volátil que ocupa, como muestra la imagen siguiente, una parte del mapa de memoria.
-              Esta memoria suele estar situada en la parte baja o alta del mapa de memoria, aunque en la arquitectura PC se encuentra al final del primer megabyte del mapa de memoria. En esta memoria ROM hay un programa de arranque, que está siempre disponible, puesto que la ROM no pierde su contenido. Llamaremos iniciador ROM a este programa.</p>
-              <div class="text-center">
-                <img src="./images/actividad5-1.png" alt="Unidad de memoria">
-              </div>
-            <h3>Cargador del sistema operativo o boot</h3>
-            <p>El sistema operativo se encuentra almacenado en una unidad de almacenamiento como el disco, tal y como muestra
-              la figura 2.6. Hay una parte del mismo en la que estamos especialmente interesados ahora: se trata del programa cargador del sistema operativo o boot del sistema operativo. Este programa está almacenado en una
-              zona predefinida del mencionado dispositivo (p. ej.: los cuatro primeros sectores del disco) y tiene un tamaño prefijado. Además, incluye una contraseña (o palabra mágica) que lo identifica como boot.
-            </p>
-            <p> La operación combinada de leer un programa ubicado en un periférico y de almacenarlo en memoria principal se denomina carga. El programa que realiza esta operación se llama cargador</p>
-            <div class="text-center">
-              <img src="./images/actividad5-2.png" alt="Programa cargador">
+            <h2 class="section-title mb-3 text-center">Active Directory</h2>
+            <p>Active Directory es un servicio de directorio de Microsoft que corre en Windows Server y permite a los administradores administrar los permisos y accesar a los recursos de la red.
+              Este servicio almacena a los datos como objetos y estos objetos por sí solos, pueden ser un usuario, un grupo, aplicación, dispositivo, entre otros elementos. Los elementos que definimos como un recurso dentro de la red son por ejemplo las impresoras o computadoras y por otro lado, los elementos que definimos como principios de seguridad, son los usuarios o grupos.</p>
+            <p>Una de las ventajas de los Active Directory es separar la estructura lógica de la organización (dominios) de la estructura física (topología de red).
+              <ul>
+                <li>Ordenadores</li>
+                <li>Servidores</li>
+                <li>Laptops</li>
+                <li>Cámaras de seguridad</li>
+                <li>Impresoras</li>
+                <li>Celulas</li>
+              </ul>
+              Y todos estos componentes conectados están registrados en una base de datos central ubicada en el controlador de dominio.</p>
             </div>
           </div>
         </div>
@@ -108,24 +100,26 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12" data-aos="fade">
-            <h2 class="section-title mb-3 text-center">Arranque de hardware</h2>
-            <p>Cuando se arranca el computador, o cuando se pulsa el botón de RESET, se genera una señal eléctrica que carga
-              unos valores predefinidos en los registros. En especial, esta señal carga en el contador de programa la dirección de
-              comienzo del iniciador ROM. De esta forma, se cumplen todas las condiciones para que el computador ejecute un
-              programa y realice funciones útiles. Adicionalmente, el RESET pone el procesador en modo privilegiado, por lo que
-              puede utilizar el juego completo de instrucciones máquina, en modo real, es decir, sin memoria virtual (la MMU
-              queda desactivada), y con las interrupciones inhibidas.</p>
-            <p>El iniciador ROM realiza las tres funciones siguientes: </p>
-            <ul>
-              <li>Primero hace una comprobación del sistema, que sirve para detectar sus características (p. ej.: la cantidad
-                de memoria principal disponible o los periféricos instalados) y comprobar si el conjunto funciona correctamente</li>
-              <li>Una vez pasada esta comprobación, entra en la fase de lectura y almacenamiento en memoria del progra -
-                ma cargador del sistema operativo o boot. El programa iniciador ROM y el sistema operativo tienen un
-                convenio sobre la ubicación, dirección de arranque, contraseña y tamaño del cargador del sistema operativo. De esta forma, el iniciador ROM puede leer y verificar que la información contenida en la zona prefijada contiene efectivamente el programa cargador de un sistema operativo. Observe que el iniciador ROM
-                es independiente del sistema operativo, siempre que éste cumpla con el convenio anterior, por lo que la
-                máquina podrá soportar diversos sistemas operativos.</li>
-              <li>Finalmente, da control al programa boot, bifurcando a la dirección de memoria en la que lo ha almacenado. Observe que se sigue ejecutando en modo privilegiado y modo real.</li>
-            </ul>
+            <h2 class="section-title mb-3 text-center">Herramientas para administración de un Active Directory</h2>
+            <p>Las herramientas para la administración de un Directorio Activo generalmente se usan para:
+              <ul>
+                <li>Administración de Equipos de Active Directory</li>
+                <li>Administración de Permisos de Archivos de Active Directory</li>
+                <li>Administración de Usuarios de Active Directory</li>
+                <li>Administración de Contraseñas de Active Directory</li>
+                <li>Gestión de Contactos de Active Directory</li>
+                <li>Gestión de Grupos de Active Directory</li>
+              </ul>
+              Las herramientas que se utilizan son:
+              <ul>
+                <li>Editor ADSI (Active Directory Service Interfaces).</li>
+                <li>Dominios y confianzas de Active Directory.</li>
+                <li>Usuarios y equipos de Active Directory.</li>
+                <li>Sitios y servicios de Active Directory.</li>
+                <li>Centro de Administración de Active Directory.</li>
+                <li>Módulo de Active Directory para PowerShell.</li>
+              </ul>
+            </p>
           </div>
         </div>
       </div>
@@ -135,29 +129,12 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12" data-aos="fade">
-            <h2 class="section-title mb-3 text-center">Arranque del sistema operativo</h2>
-            <p>El programa boot tiene por misión traer a memoria principal y ejecutar el programa de arranque del sistema operativo, que incluye las siguientes operaciones:</p>
-            <ul>
-              <li>Comprobación del sistema. Se completan las pruebas del hardware realizadas por el iniciador ROM y se
-                comprueba que el sistema de ficheros tiene un estado coherente. Esta operación exige revisar todos los directorios, lo que supone un largo tiempo de procesamiento. Por esta razón, los sistemas operativos para
-                máquinas personales solamente realizan esta revisión si se apagó mal el sistema.</li>
-              <li>Se carga en memoria principal aquella parte del sistema operativo que ha de estar siempre en memoria,
-                parte que se denomina sistema operativo residente.</li>
-              <li>Se establecen las estructuras de información propias del sistema operativo, tales como la tabla de interrupciones IDT, la tabla de procesos, las tablas de memoria y las de E/S. El contenido de estas tablas se describirá a lo largo del libro.</li>
-              <li>En su caso, creadas las tablas de páginas necesarias, se activa la MMU, pasando a modo virtual.</li>
-              <li>Se habilitan las interrupciones.</li>
-              <li>Se crea un proceso de inicio o login por cada terminal definido en el sistema, así como una serie de procesos auxiliares y de demonios como el de impresión o el de comunicaciones. Dichos procesos ya ejecutan en modo usuario.</li>
-            </ul>
-            <p>En el caso de los sistemas operativos tipo UNIX el arranque del mismo solamente crea un proceso denominado INIT, estando este proceso encargado de crear los procesos de inicio y los procesos auxiliares.
-              Los procesos de inicio muestran en su terminal el mensaje de bienvenida y se quedan a la espera de que un
-              usuario arranque una sesión, para lo cual ha de teclear el nombre de su cuenta y su contraseña o password. El proceso de inicio autentica al usuario, comprobando que los datos introducidos son correctos y lanza un proceso shell.</p>
-            <p>Suele existir algún mecanismo para que el usuario pueda establecer sus preferencias, por ejemplo, el shell puede primero ejecutar uno o varios ficheros de mandatos, como es el autoexec.bat en MS-DOS o los .profile y
-              .bashrc en UNIX. A continuación, el shell se queda esperando órdenes de los usuarios, ya sean textuales o acciones sobre un menú o un icono. Es frecuente que el shell genere uno o varios procesos para llevar a cabo cada
-              operación solicitada por el usuario</p>
-            <p>En algunos de los sistemas operativos monousuario utilizados en los computadores personales no hay fase de
-              login, creándose directamente el proceso shell para atender al usuario.</p>
+            <h2 class="section-title mb-3 text-center">Editor ADSI</h2>
+            <p>ADSI se refiere a "Active Directory Service Interfaces" y estos son un conjunto de interfaces COM que se utilizan para acceder a las características de diferentes servicios de directorio incluso de diferentes proveedores de red.</p>
+            <p>Esta interfaz se utiliza en un ambiente de computación distributiva para presentar un único servicio de interfaz de directorio en una administración de recursos en la red. Este por lo tanto permite a los administradores y desarrolladores realizar tareas administrativas como agregar usuarios, administrar impresoras o localizar recursos en una red y también se pueden usar estos servicios para enumerar los recursos de un servicio de directorio.</p>
+            <p>El Editor ADSI es un complemento de Microsoft Management Console (MMC) que se usa para administar estos servicios de directorio ligero de Active Directory (AD LDS). Este administra una instancia de AD LDS, pero para esto se debe conectar y enlazar a distancia, lo cual permite que se puedan administrar objetos y contenedores de la instancia.</p>
             <div class="text-center">
-              <img src="./images/actividad5-3.png" alt="Operaciones realizadas en el arranque del computador y situación del procesador">
+              <img src="./images/actividad7-1.png" alt="Editor ADSI">
             </div>
           </div>
         </div>
@@ -168,27 +145,15 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12" data-aos="fade">
-            <h2 class="section-title mb-3 text-center">Parada del computador</h2>
-            <p>Para garantizar una alta velocidad, el sistema operativo mantiene en memoria principal una gran cantidad de información crítica, entre la que cabe destacar parte de los ficheros que se están utilizando. Para que toda esa informa -
-              ción no se pierda o corrompa al apagar el computador, el sistema operativo debe proceder a un apagado ordenado,
-              que consiste en copiar a disco toda la información crítica que mantiene en memoria y en terminar todos los procesos
-              activos. Este apagado ordenado lleva un cierto tiempo, pero es imprescindible para que no se produzcan pérdidas de
-              información</p>
-            <p>Cuando se produce un apagón brusco, por ejemplo, porque se interrumpe la alimentación o porque se pulsa el
-              RESET del computador, se corre el riesgo de perder información importante y de que el sistema de ficheros quede
-              inconsistente. Por esta razón, después de un apagado brusco se debe comprobar siempre la consistencia del sistema
-              de ficheros y se deben reparar los posibles problemas detectados.</p>
-            <p>En los sistemas multiusuario el apagado del computador debe anunciarse con suficiente antelación para que
-              los usuarios cierren sus aplicaciones y salven en disco su información.</p>
-            <p>En los computadores personales se puede <strong>hibernar</strong> el sistema. Esta operación se diferencia del apagado en
-              que los procesos no se cierran, simplemente se hace una copia a disco de toda la memoria principal. Cuando se vuelve a arrancar, se recupera esta copia, quedando el computador en el estado que tenía antes de hibernar, con todos los
-              procesos activos. La hibernación y rearranque posterior suelen ser bastante más rápidas que el apagado y arranque
-              normal.</p>
-            <p>Los computadores portátiles suelen incorporar una función de <strong>apagado en espera</strong> (standby). En este modo se
-              para todo el computador, pero se mantiene alimentada la memoria principal, de forma que conserve toda su información. Se trata de un apagado parecido a la hibernación pero que es mucho más rápido, puesto que no se copia la información al disco, pero se necesita una batería para mantener la memoria alimentada. Del apagado en espera se sale
-              mediante una interrupción, como puede ser de un temporizador o batería baja. Este apagado no se puede utilizar, por
-              ejemplo, en los aviones, puesto que el computador puede despertar, aunque esté cerrado, violando las normas de
-              aviación civil.</p>
+            <h2 class="section-title mb-3 text-center">Dominios y confianzas de Active Directory</h2>
+            <p>Estos son el complemento Microsoft Management Console (MMC) que puede ser utilizado para administrar confianzas de dominios, niveles funcionales del bosque o del dominio y sufijos de nombre principal de usuario (UPN).
+              Una relación de confianza en el entorno Windows significa que un controlador de dominio confía en otro, permitiendo que se puedan relacionar y tener usuarios que puedan iniciar sesión en ambos controladores de dominio. Además se pueden compartir recursos que serán accesibles desde ambos extremos.
+              Se tienen dos tipos de relaciones de confianza:
+              <ul>
+                <li>Bidireccionales: Ambos dominios confían mutuamente y no existen restricciones a la hora de hacer operaciones.</li>
+                <li>Unidireccionales: Un controlador de dominio confía en otro y le permite el acceso a sus usuarios y recursos, pero no sucede lo mismo del otro lado.</li>
+              </ul>
+            </p>
           </div>
         </div>
       </div>
@@ -198,59 +163,100 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12" data-aos="fade">
-            <h2 class="section-title mb-3 text-center">Excepciones hardware síncronas</h2>
-            <p> Hay determinadas causas que hacen que un programa presente una incidencia en su ejecución, por lo que se generará una interrupción, para que el sistema operativo entre a
-              ejecutar y decida lo que debe hacerse. Dichas causas se pueden estructurar en las tres clases siguientes:</p>
-            <ul>
-              <li>Problemas de ejecución:
-                <ul>
-                  <li>Operación inválida en la unidad aritmética.</li>
-                  <li>División por cero.</li>
-                  <li>Operando no normalizado.</li>
-                  <li>Desbordamiento en el resultado, siendo demasiado grande o demasiado pequeño.</li>
-                  <li>Resultado inexacto en la unidad aritmética.</li>
-                  <li>Dispositivo no existente (p. ej.: no existe coprocesador).</li>
-                  <li>Región de memoria inválida.</li>
-                  <li>Región de memoria privilegiada en modo de ejecución usuario.</li>
-                  <li>Desbordamiento de la pila.</li>
-                  <li>Violación de los límites de memoria asignada.</li>
-                  <li>Error de alineación en acceso a memoria.</li>
-                  <li>Código de operación máquina inválido.</li>
-                  <li>Código de operación máquina privilegiado en modo de ejecución usuario.</li>
-                </ul>
-              </li>
-              <li>Depuración:
-                <ul>
-                  <li>Punto de ruptura.</li>
-                </ul>
-              </li>
-              <li>Fallo de página</li>
-            </ul>
-            <p>Todas ellas son producidas directa o indirectamente por el programa en ejecución, por lo que decimos que
-              se trata de interrupciones síncronas.</p>
+            <h2 class="section-title mb-3 text-center">Usuarios y equipos de Active Directory</h2>
+            <p>También es un complemento de Microsoft Management Console (MMC) que se puede usar para administrar y publicar información en el directorio.
+              Con esto se puede:
+              <ul>
+                <li>Crear una cuenta de controlador de dominio de solo lectura.</li>
+                <li>Crear y administrar equipos, contactos, grupos, unidades organizativas, impresoras, usuarios, etc.</li>
+                <li>Delegar el control de tareas comunes sobre objetos de Active Directory en usuarios o grupos especificados.</li>
+                <li>Transferir maestros de operaciones a nivel de dominios.</li>
+              </ul>
+              </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="site-section bg-light" id="conclusion-section">
+    <section class="site-section bg-light" id="exceptions-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12" data-aos="fade">
+            <h2 class="section-title mb-3 text-center">Sitios y Servicios de Active Directory</h2>
+            <p>De igual forma es un complemento de Microsoft Management Console (MMC) de Windows Server que tiene como función la administración de la replicación de datos de directorio entre todos los sitios de un bosque de los Servicios de Dominio de Active Directory (AD DS). Lo que se puede administrar con esta herramienta es:
+              <ul>
+                <li>Administración de sitios
+                  <ul><li>Sitios</li>
+                    <li>Subredes</li>
+                    <li>Servidores</li>
+                    <li>Configuración NTDS</li>
+                    <li>Conexiones</li>
+                    <li>Vínculos a sitios</li>
+                    <li>Transportes entre sitios IP y SMTP</li></ul>
+                </li>
+                <li>Publicación de servicios</li>
+                <li>Referencias adicionales</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="exceptions-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12" data-aos="fade">
+            <h2 class="section-title mb-3 text-center">Centro de administración de Active Directory</h2>
+            <p>En Windows Server se puede administrar y publicar información en los entornos de Active Directory mediante el complemento a usuarios y equipos del MMC y también es posible administrar los objetos del servicio de directorio a través del Centro de Administración de Active Directory.
+              El Centro de Administración de AD brinda una mejor experiencia a través de la interfaz de línea de comandos PowerShell en cuanto a la administración de datos para poder realizar las tareas administrativas de los objetos mediante la navegación controlada por datos y la navegación orientada por tareas.
+              Este se puede utilizar para las siguientes tareas:
+              <ul>
+                <li>Crear grupos, cuentas de equipo, contenedores, unidades organizativas o cuentas de usuario y administrar las ya existentes.</li>
+                <li>Conectar uno o varios dominios o controladores de dominio en la misma intancia del Centro de Admonostración de Active Directory.</li>
+                <li>Ver o administrar la información de directorio de los controladores de dominio.</li>
+                <li>Filtrar datos de Active Directory mediante la generación de consultas.</li>
+              </ul>
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section bg-light" id="exceptions-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12" data-aos="fade">
+            <h2 class="section-title mb-3 text-center">Módulo de Active Directory para PowerShell</h2>
+            <p>Este módulo consolida a un grupo de cmdlets. Estos nos ayudan a administrar los dominios de Active Directory, los conjuntos de configuración de AD LDS y las instancias de la herramienta de montaje de bases de datos en un sólo paquete. Esta línea de comandos nos ayuda a controlar la administración de una manera más sencilla y productiva.</p>
+            <div class="text-center">
+              <img src="./images/actividad7-2.jpg" alt="PowerShell">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="conclusion-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center" data-aos="fade">
             <h2 class="section-title mb-3">Conclusión personal</h2>
-            <p>Esta actividad de investigación estuvo interesante, no conocía correctamente las excepciones síncronas de un sistema operativo, incluso la parte de inicio y parada del sistema las conocía solo por encima. Esto demuestra que un Sistema Operativo es muy complejo, desde su inicio y todo lo que colleva el manejo de excepciones durante la ejecución del mismo. Funciones como la hibernación o el stand by son cosas que la gran mayoría hemos utilizado y no nos ponemos a pensar en cómo fueron implementadas a bajo nivel, es muy interesante el conocer cómo funcionan las cosas que nos son tan útiles en el día a día.</p>
+            <p>Honestamente yo no conocía sobre Active Directory antes de realizar la investigación para esta actividad, pero por lo que veo es bastante completo e importante en el ámbito de la administración de redes. Es muy útil el hecho de que con él puedes administrar las diferentes partes de una red, como permisos, recursos, usuarios, etc. Una de las cosas que normalmente no tomamos en cuenta al aprender sobre administración de servicios es lo complicado que esto se vuelve cuando se escala un servicio, una red compleja y grande no será igual de fácil de administrar que una pequeña red de prueba que realizamos para nuestras actividades escolares, y el tener estas poderosas herramientas ayudan mucho en el mundo real.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="site-section" id="sources-section">
+    <section class="site-section bg-light" id="sources-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center" data-aos="fade">
             <h2 class="section-title mb-3">Bibliografía</h2>
-            <a href="https://www.cartagena99.com/recursos/alumnos/apuntes/sistemasoperativosupm.pdf">Sistemas Operativos - Pedro de Miguel Anasagasti & Fernando Pérez Costoya</a> <br>
-            <a href="https://www.ibm.com/support/knowledgecenter/es/ssw_aix_72/osmanagement/bootproc.html">Arranque de sistema operativo - IBM Knowledge center</a> <br>
+            <a href="https://administracionsistemasoperativos201415.wordpress.com/2015/02/26/herramientas-para-la-administracion-de-active-directory/">Herramientas para la administración de Active Directory</a> <br>
+            <a href="https://forsenergy.com/es-es/adam/html/95fd3ac1-6fa7-4640-bca9-8651fb968e29.htm">Editor ADSI - Forsenergy</a> <br>
+            <a href="https://searchwindowsserver.techtarget.com/definition/Active-Directory">Active Directory - Tech Target</a> <br>
+            <a href="https://docs.microsoft.com/en-us/troubleshoot/windows-client/remote/description-remote-server-administration-tools">Description of Remote Server Administration Tools - Windows Client</a>
           </div>
         </div>
       </div>
